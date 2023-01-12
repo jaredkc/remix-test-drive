@@ -1,14 +1,16 @@
+import { Link } from '@remix-run/react';
+
 export default function Index() {
   return (
-    <div className="p-4 md:p-8">
-      <h1 className="text-3xl font-light mb-4">Welcome to Remix</h1>
-      <ul className="list-disc pl-4">
+    <div>
+      <h1 className="mb-4 text-3xl font-light">Welcome to Remix</h1>
+      <ul className="pl-4 list-disc">
         <li>
           <a
             target="_blank"
             href="https://remix.run/tutorials/blog"
             rel="noreferrer"
-            className="underline text-blue-800"
+            className="text-blue-800 underline"
           >
             15m Quickstart Blog Tutorial
           </a>
@@ -18,7 +20,7 @@ export default function Index() {
             target="_blank"
             href="https://remix.run/tutorials/jokes"
             rel="noreferrer"
-            className="underline text-blue-800"
+            className="text-blue-800 underline"
           >
             Deep Dive Jokes App Tutorial
           </a>
@@ -28,12 +30,19 @@ export default function Index() {
             target="_blank"
             href="https://remix.run/docs"
             rel="noreferrer"
-            className="underline text-blue-800"
+            className="text-blue-800 underline"
           >
             Remix Docs
           </a>
         </li>
       </ul>
+      <hr className="my-8" />
+      <Link
+        to="/about"
+        className="text-sm tracking-wide text-gray-600 uppercase hover:underline hover:text-blue-600"
+      >
+        About page
+      </Link>
     </div>
   );
 }
