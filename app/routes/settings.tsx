@@ -5,6 +5,7 @@ import { FormInput, FormSubmit } from '~/components/forms';
 import type { DataFunctionArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useActionData } from '@remix-run/react';
+import { Alert } from '~/components/Alert';
 
 export const validator = withZod(
   z.object({
@@ -33,14 +34,14 @@ export default function SettingsPage() {
 
   return (
     <ValidatedForm validator={validator} method="post">
+      {data && (
+        <Alert title={data.title} type="success">
+          <p>{data.description}</p>
+        </Alert>
+      )}
       <FormInput name="firstName" label="First Name" type="text" />
       <FormInput name="lastName" label="Last Name" type="text" />
       <FormInput name="email" label="Email" type="email" />
-      {data && (
-        <div>
-          {data.title}, {data.description}
-        </div>
-      )}
       <FormSubmit />
     </ValidatedForm>
   );
