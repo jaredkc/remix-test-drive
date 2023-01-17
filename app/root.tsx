@@ -3,9 +3,10 @@ import {
   Links,
   LiveReload,
   Meta,
+  NavLink,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration
 } from '@remix-run/react';
 import { Analytics } from '@vercel/analytics/react';
 import styles from './styles/app.css';
@@ -28,6 +29,17 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <nav className="flex items-center gap-4 px-8 text-sm bg-gray-800 h-14">
+          <NavLink to="/" className="text-gray-300">
+            Home
+          </NavLink>
+          <NavLink to="about" className="text-gray-300">
+            About
+          </NavLink>
+          <NavLink to="settings" className="text-gray-300">
+            Settings
+          </NavLink>
+        </nav>
         <div className="max-w-2xl p-4 md:p-8">
           <Outlet />
         </div>
