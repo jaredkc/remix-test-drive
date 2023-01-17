@@ -1,5 +1,3 @@
-import { Link } from '@remix-run/react';
-
 export default function Index() {
   return (
     <div>
@@ -36,13 +34,6 @@ export default function Index() {
           </a>
         </li>
       </ul>
-      <hr className="my-8" />
-      <Link
-        to="/about"
-        className="text-sm tracking-wide text-gray-600 uppercase hover:underline hover:text-blue-600"
-      >
-        About page
-      </Link>
     </div>
   );
 }
