@@ -33,11 +33,11 @@ export default function App() {
           <NavLink to="/" className="text-gray-300">
             Home
           </NavLink>
-          <NavLink to="about" className="text-gray-300">
-            About
+          <NavLink to="signup" className="text-gray-300">
+            Signup
           </NavLink>
-          <NavLink to="settings" className="text-gray-300">
-            Settings
+          <NavLink to="login" className="text-gray-300">
+            Login
           </NavLink>
         </nav>
         <div className="max-w-2xl p-4 md:p-8">
