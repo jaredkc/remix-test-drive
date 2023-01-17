@@ -35,7 +35,7 @@ export default function SettingsPage() {
   return (
     <ValidatedForm validator={validator} method="post">
       {data && (
-        <Alert title={data.title} type="success">
+        <Alert title={data.title}>
           <p>{data.description}</p>
         </Alert>
       )}
