@@ -1,51 +1,62 @@
-import type { DataFunctionArgs } from '@remix-run/node';
+import type { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
-import { useActionData } from '@remix-run/react';
-import { withZod } from '@remix-validated-form/with-zod';
-import { ValidatedForm, validationError } from 'remix-validated-form';
-import { z } from 'zod';
+import { Form, useLoaderData } from '@remix-run/react';
+import { auth, sessionStorage } from '~/auth.server';
 import { Alert } from '~/components/Alert';
-import { FormInput, FormSubmit } from '~/components/forms';
-import { FormPassword } from '~/components/forms/FormPassword';
 
-export const validator = withZod(
-  z.object({
-    email: z
-      .string()
-      .min(1, { message: 'Email is required' })
-      .email('Must be a valid email'),
-    password: z.string().min(12, { message: 'A secure password is required' }),
-  })
-);
-
-export const action = async ({ request }: DataFunctionArgs) => {
-  const result = await validator.validate(await request.formData());
-  if (result.error) return validationError(result.error);
-  const { email, password } = result.data as Record<string, any>;
-
-  return json({
-    title: `Hi ${email}!`,
-    description: `Your email is ${password}`,
+export const action = async ({ request }: ActionArgs) => {
+  await auth.authenticate('form', request, {
+    successRedirect: '/private',
+    failureRedirect: '/login',
   });
 };
 
-export default function Login() {
-  const data = useActionData();
+type LoaderError = { message: string } | null;
+
+export const loader = async ({ request }: LoaderArgs) => {
+  await auth.isAuthenticated(request, { successRedirect: '/private' });
+  const session = await sessionStorage.getSession(
+    request.headers.get('Cookie')
+  );
+  const error = session.get(auth.sessionErrorKey) as LoaderError;
+  return json({ error });
+};
+
+export default function Screen() {
+  const { error } = useLoaderData<typeof loader>();
 
   return (
-    <ValidatedForm id="newUser" validator={validator} method="post">
-      <p>
-        A slightly more complex form. Includes functionality to see and generate
-        a password.
-      </p>
-      {data && (
-        <Alert title={data.title}>
-          <p>{data.description}</p>
-        </Alert>
-      )}
-      <FormInput name="email" label="Email" type="email" />
-      <FormPassword />
-      <FormSubmit />
-    </ValidatedForm>
+    <Form method="post">
+      {error ? <Alert title={error.message} /> : null}
+
+      <div className="my-4">
+        <label htmlFor="email" className="block text-xs">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          defaultValue="user@example.com"
+          className="p-2 border rounded"
+        />
+      </div>
+      <div className="my-4">
+        <label htmlFor="password" className="block text-xs">
+          Password
+        </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          defaultValue="test"
+          className="p-2 border rounded"
+        />
+      </div>
+
+      <button className="px-8 py-2 mt-4 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Log In
+      </button>
+    </Form>
   );
 }

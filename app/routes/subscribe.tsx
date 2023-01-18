@@ -5,7 +5,7 @@ import { withZod } from '@remix-validated-form/with-zod';
 import { ValidatedForm, validationError } from 'remix-validated-form';
 import { z } from 'zod';
 import { Alert } from '~/components/Alert';
-import { FormInput, FormSubmit } from '~/components/forms';
+import { ValidatedFormInput, ValidatedFormSubmit } from '~/components/forms';
 
 export const validator = withZod(
   z.object({
@@ -29,7 +29,7 @@ export const action = async ({ request }: DataFunctionArgs) => {
   });
 };
 
-export default function SignUp() {
+export default function Subscribe() {
   const data = useActionData();
 
   return (
@@ -43,10 +43,10 @@ export default function SignUp() {
           <p>{data.description}</p>
         </Alert>
       )}
-      <FormInput name="firstName" label="First Name" type="text" />
-      <FormInput name="lastName" label="Last Name" type="text" />
-      <FormInput name="email" label="Email" type="email" />
-      <FormSubmit />
+      <ValidatedFormInput name="firstName" label="First Name" type="text" />
+      <ValidatedFormInput name="lastName" label="Last Name" type="text" />
+      <ValidatedFormInput name="email" label="Email" type="email" />
+      <ValidatedFormSubmit />
     </ValidatedForm>
   );
 }

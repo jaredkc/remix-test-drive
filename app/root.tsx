@@ -6,7 +6,7 @@ import {
   NavLink,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from '@remix-run/react';
 import { Analytics } from '@vercel/analytics/react';
 import styles from './styles/app.css';
@@ -29,18 +29,23 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <nav className="flex items-center gap-4 px-8 text-sm bg-gray-800 h-14">
-          <NavLink to="/" className="text-gray-300">
-            Home
-          </NavLink>
-          <NavLink to="signup" className="text-gray-300">
-            Signup
-          </NavLink>
+        <nav className="flex items-center justify-between gap-4 px-8 text-sm bg-gray-800 h-14">
+          <div className="flex items-center gap-4">
+            <NavLink to="/" className="text-gray-300">
+              Home
+            </NavLink>
+            <NavLink to="subscribe" className="text-gray-300">
+              Subscribe
+            </NavLink>
+            <NavLink to="private" className="text-gray-300">
+              Private
+            </NavLink>
+          </div>
           <NavLink to="login" className="text-gray-300">
             Login
           </NavLink>
         </nav>
-        <div className="max-w-2xl p-4 md:p-8">
+        <div className="max-w-2xl p-4 mx-auto md:p-8">
           <Outlet />
         </div>
         <ScrollRestoration />
