@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useField } from 'remix-validated-form';
 
-export const FormPassword = () => {
+export const ValidatedFormPassword = () => {
   const { error, getInputProps } = useField('password');
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');

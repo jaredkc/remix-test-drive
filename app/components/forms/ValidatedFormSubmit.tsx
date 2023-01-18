@@ -1,6 +1,6 @@
 import { useIsSubmitting } from 'remix-validated-form';
 
-export const FormSubmit = () => {
+export const ValidatedFormSubmit = () => {
   const isSubmitting = useIsSubmitting();
   return (
     <button

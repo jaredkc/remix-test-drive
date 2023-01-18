@@ -6,7 +6,7 @@ type FormInputProps = {
   type: 'email' | 'number' | 'password' | 'url' | 'text';
 };
 
-export const FormInput = ({ name, label, type }: FormInputProps) => {
+export const ValidatedFormInput = ({ name, label, type }: FormInputProps) => {
   const { error, getInputProps } = useField(name);
 
   return (
