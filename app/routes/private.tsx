@@ -1,9 +1,7 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-// import jwt_decode from 'jwt-decode';
-
-import { auth } from '~/auth.server';
+import { auth } from '~/session.server';
 
 export const action = async ({ request }: ActionArgs) => {
   await auth.logout(request, { redirectTo: '/login' });

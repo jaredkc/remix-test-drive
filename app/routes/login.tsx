@@ -1,7 +1,7 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import { auth, sessionStorage } from '~/auth.server';
+import { auth, sessionStorage } from '~/session.server';
 import { Alert } from '~/components/Alert';
 
 export const action = async ({ request }: ActionArgs) => {
