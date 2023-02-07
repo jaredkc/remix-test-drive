@@ -45,7 +45,7 @@ export default function App() {
             Login
           </NavLink>
         </nav>
-        <div className="max-w-2xl p-4 mx-auto md:p-8">
+        <div className="max-w-xl p-4 mx-auto md:p-8 lg:p-12">
           <Outlet />
         </div>
         <ScrollRestoration />

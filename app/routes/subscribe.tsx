@@ -33,20 +33,39 @@ export default function Subscribe() {
   const data = useActionData();
 
   return (
-    <ValidatedForm validator={validator} method="post">
-      <p>
-        A basic form with remix-validate-form. Check out how much less code is
-        needed.
-      </p>
-      {data && (
-        <Alert title={data.title}>
-          <p>{data.description}</p>
-        </Alert>
-      )}
-      <ValidatedFormInput name="firstName" label="First Name" type="text" />
-      <ValidatedFormInput name="lastName" label="Last Name" type="text" />
-      <ValidatedFormInput name="email" label="Email" type="email" />
-      <ValidatedFormSubmit />
-    </ValidatedForm>
+    <>
+      <article className="mb-8 prose">
+        <p>
+          An example form using{' '}
+          <a href="https://www.remix-validated-form.io/">remix-validate-form</a>
+          . Includes:
+        </p>
+        <ul>
+          <li>
+            Button submitting state with{' '}
+            <a href="https://www.remix-validated-form.io/reference/use-is-submitting">
+              useIsSubmitting
+            </a>
+          </li>
+          <li>
+            Form validation{' '}
+            <a href="https://www.remix-validated-form.io/server-validation">
+              with Zod
+            </a>
+          </li>
+        </ul>
+      </article>
+      <ValidatedForm validator={validator} method="post">
+        {data && (
+          <Alert title={data.title}>
+            <p>{data.description}</p>
+          </Alert>
+        )}
+        <ValidatedFormInput name="firstName" label="First Name" type="text" />
+        <ValidatedFormInput name="lastName" label="Last Name" type="text" />
+        <ValidatedFormInput name="email" label="Email" type="email" />
+        <ValidatedFormSubmit />
+      </ValidatedForm>
+    </>
   );
 }
