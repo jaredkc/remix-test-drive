@@ -1,25 +1,23 @@
 import type { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import { auth, sessionStorage } from '~/session.server';
 import { Alert } from '~/components/Alert';
+import { auth, getSession } from '~/session.server';
+
+type LoaderError = { message: string } | null;
+
+export const loader = async ({ request }: LoaderArgs) => {
+  await auth.isAuthenticated(request, { successRedirect: '/private' });
+  const session = await getSession(request.headers.get('Cookie'));
+  const error = session.get(auth.sessionErrorKey) as LoaderError;
+  return json({ error });
+};
 
 export const action = async ({ request }: ActionArgs) => {
   await auth.authenticate('form', request, {
     successRedirect: '/private',
     failureRedirect: '/login',
   });
-};
-
-type LoaderError = { message: string } | null;
-
-export const loader = async ({ request }: LoaderArgs) => {
-  await auth.isAuthenticated(request, { successRedirect: '/private' });
-  const session = await sessionStorage.getSession(
-    request.headers.get('Cookie')
-  );
-  const error = session.get(auth.sessionErrorKey) as LoaderError;
-  return json({ error });
 };
 
 export default function Screen() {

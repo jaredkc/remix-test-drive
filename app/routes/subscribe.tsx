@@ -1,11 +1,10 @@
 import type { DataFunctionArgs } from '@remix-run/node';
-import { json } from '@remix-run/node';
-import { useActionData } from '@remix-run/react';
+import { redirect } from '@remix-run/node';
 import { withZod } from '@remix-validated-form/with-zod';
 import { ValidatedForm, validationError } from 'remix-validated-form';
 import { z } from 'zod';
-import { Alert } from '~/components/Alert';
 import { ValidatedFormInput, ValidatedFormSubmit } from '~/components/forms';
+import { commitSession, getSession } from '~/session.server';
 
 export const validator = withZod(
   z.object({
@@ -21,17 +20,18 @@ export const validator = withZod(
 export const action = async ({ request }: DataFunctionArgs) => {
   const result = await validator.validate(await request.formData());
   if (result.error) return validationError(result.error);
-  const { firstName, lastName, email } = result.data as Record<string, any>;
 
-  return json({
-    title: `Hi ${firstName} ${lastName}!`,
-    description: `Your email is ${email}`,
+  const session = await getSession(request.headers.get('Cookie'));
+  session.flash('globalMessage', `Successfully subscribed to the newsletter!`);
+
+  return redirect('/', {
+    headers: {
+      'Set-Cookie': await commitSession(session),
+    },
   });
 };
 
 export default function Subscribe() {
-  const data = useActionData();
-
   return (
     <>
       <article className="mb-8 prose">
@@ -56,11 +56,6 @@ export default function Subscribe() {
         </ul>
       </article>
       <ValidatedForm validator={validator} method="post">
-        {data && (
-          <Alert title={data.title}>
-            <p>{data.description}</p>
-          </Alert>
-        )}
         <ValidatedFormInput name="firstName" label="First Name" type="text" />
         <ValidatedFormInput name="lastName" label="Last Name" type="text" />
         <ValidatedFormInput name="email" label="Email" type="email" />
