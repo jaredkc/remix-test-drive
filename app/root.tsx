@@ -49,8 +49,14 @@ export default function App() {
             <NavLink to="/" className="text-gray-300">
               Home
             </NavLink>
-            <NavLink to="subscribe" className="text-gray-300">
-              Subscribe
+            <NavLink to="loader-template" className="text-gray-300">
+              Loader
+            </NavLink>
+            <NavLink to="action-template" className="text-gray-300">
+              Action
+            </NavLink>
+            <NavLink to="validated-form-template" className="text-gray-300">
+              Validated Form
             </NavLink>
             <NavLink to="private" className="text-gray-300">
               Private

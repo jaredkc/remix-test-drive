@@ -4,5 +4,63 @@
 
 /* For active links provided by Remix NavLink */
 .active {
-  @apply text-gray-50 font-bold;
+  @apply font-bold text-gray-50;
+}
+
+/* For active links provided by Remix NavLink */
+.active {
+  @apply font-bold text-gray-50;
+}
+
+.text-link {
+  @apply text-blue-700 underline cursor-pointer;
+}
+.text-link:hover {
+  @apply text-blue-900;
+}
+
+.form-label {
+  @apply block mb-1 text-sm text-gray-700 cursor-pointer;
+}
+
+.form-label-checkbox,
+.form-label-radio {
+  @apply flex items-center gap-2 mr-1 text-gray-700 cursor-pointer;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 leading-5 border border-gray-400 rounded outline-offset-4;
+}
+
+.form-input:read-only {
+  @apply text-gray-500 border-gray-300 cursor-not-allowed bg-gray-50;
+}
+
+.form-label__action {
+  @apply text-xs text-gray-500 underline cursor-pointer;
+  margin-top: -1px;
+}
+.form-label__action:hover,
+.form-label__action:focus {
+  color: var(--p-text-primary-hovered)
+}
+
+.form-input[disabled] {
+  @apply text-gray-400 border-gray-300 cursor-not-allowed bg-gray-50;
+}
+
+.form-required {
+  @apply px-1 text-red-600;
+}
+
+.form-input--error {
+  @apply border-red-500 bg-red-50;
+}
+
+.form-error {
+  @apply mt-1 text-xs text-red-600;
+}
+
+.form-help {
+  @apply mt-1 text-xs text-gray-500;
 }

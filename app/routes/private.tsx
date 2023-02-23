@@ -29,7 +29,9 @@ export default function Screen() {
       </p>
 
       <Form method="post">
-        <button className="px-4 py-2 text-sm border rounded">Log Out</button>
+        <button className="px-4 py-2 text-sm border border-gray-500 rounded">
+          Log Out
+        </button>
       </Form>
     </>
   );

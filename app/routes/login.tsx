@@ -2,6 +2,7 @@ import type { ActionArgs, LoaderArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { Alert } from '~/components/Alert';
+import { FormSubmit } from '~/components/forms';
 import { auth, getSession } from '~/session.server';
 
 type LoaderError = { message: string } | null;
@@ -25,7 +26,7 @@ export default function Screen() {
 
   return (
     <Form method="post">
-      {error ? <Alert title={error.message} /> : null}
+      {error ? <Alert title={error.message} type="error" /> : null}
 
       <div className="my-4">
         <label htmlFor="email" className="block text-xs">
@@ -52,9 +53,7 @@ export default function Screen() {
         />
       </div>
 
-      <button className="px-8 py-2 mt-4 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-        Log In
-      </button>
+      <FormSubmit label="Log In" />
     </Form>
   );
 }

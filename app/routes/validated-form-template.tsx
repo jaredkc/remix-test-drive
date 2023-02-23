@@ -31,7 +31,7 @@ export const action = async ({ request }: DataFunctionArgs) => {
   });
 };
 
-export default function Subscribe() {
+export default function ValidatedFormTemplate() {
   return (
     <>
       <article className="mb-8 prose">
