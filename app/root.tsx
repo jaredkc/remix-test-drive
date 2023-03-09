@@ -11,6 +11,7 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import { Analytics } from '@vercel/analytics/react';
+import { AppFrame } from './components/AppFrame';
 import { commitSession, getSession } from './session.server';
 import styles from './styles/app.css';
 
@@ -43,39 +44,17 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
-        <nav className="flex items-center justify-between gap-4 px-8 text-sm bg-gray-800 h-14">
-          <div className="flex items-center gap-4">
-            <NavLink to="/" className="text-gray-300">
-              Home
-            </NavLink>
-            <NavLink to="loader-template" className="text-gray-300">
-              Loader
-            </NavLink>
-            <NavLink to="action-template" className="text-gray-300">
-              Action
-            </NavLink>
-            <NavLink to="validated-form-template" className="text-gray-300">
-              Validated Form
-            </NavLink>
-            <NavLink to="private" className="text-gray-300">
-              Private
-            </NavLink>
-          </div>
-          <NavLink to="login" className="text-gray-300">
-            Login
-          </NavLink>
-        </nav>
-        <div className="max-w-xl p-4 mx-auto md:p-8 lg:p-12">
+      <body className="antialiased bg-white">
+        <AppFrame>
           <Outlet />
-          {message && (
-            <div className="fixed bottom-0 max-w-md p-4 -translate-x-1/2 left-1/2">
-              <div className="px-4 py-2 rounded text-slate-100 bg-slate-700">
-                {message}
-              </div>
+        </AppFrame>
+        {message && (
+          <div className="fixed bottom-0 max-w-md p-4 -translate-x-1/2 left-1/2 z-50">
+            <div className="px-4 py-2 rounded text-slate-100 bg-slate-700">
+              {message}
             </div>
-          )}
-        </div>
+          </div>
+        )}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

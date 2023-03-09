@@ -6,7 +6,7 @@
 Remix specific styles
 */
 .active {
-  @apply font-bold text-gray-50;
+  @apply font-bold;
 }
 
 /*

@@ -13,6 +13,7 @@ specifiers:
   '@types/react-dom': ^18.0.11
   '@vercel/analytics': ^0.1.11
   '@vercel/node': ^2.9.12
+  clsx: ^1.2.1
   concurrently: ^7.6.0
   eslint: ^8.35.0
   framer-motion: ^10.2.3
@@ -33,6 +34,7 @@ dependencies:
   '@remix-validated-form/with-zod': 2.0.5_3ijvnoawoua7sdfngun2xjvzbe
   '@vercel/analytics': 0.1.11_react@18.2.0
   '@vercel/node': 2.9.12
+  clsx: 1.2.1
   framer-motion: 10.2.3_biqbaboplfbrettd7655fr4n2y
   jwt-decode: 3.1.2
   react: 18.2.0
@@ -3105,6 +3107,11 @@ packages:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
     dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /code-block-writer/10.1.1:
     resolution: {integrity: sha512-67ueh2IRGst/51p0n6FvPrnRjAGHY5F8xdjkgrYE7DDzpJe6qA07RYQ9VcoUeo5ATOjSOiWpSL3SWBRRbempMw==}
