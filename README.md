@@ -1,14 +1,14 @@
 # Remix Test Drive
 
-This directory is a brief example of a [Remix](https://remix.run/docs) site that can be deployed to Vercel with zero configuration.
+As I continue to dive in and learn [Remix](https://remix.run/docs), I'll be adding more examples here. These examples are intended to be quick cut-and-paste starter resources when working with Remix.
 
 Remix examples provided:
 
-- Boilerplate template examples for [action](https://remix.run/docs/en/v1/hooks/use-action-data) and [loader](https://remix.run/docs/en/v1/hooks/use-loader-data)
-- Form template and validation with [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form)
-- Remix friendly form components
-- Global toast messages via [session flash](https://remix.run/docs/en/v1/utils/sessions#sessionflashkey-value)
+- Boilerplate template for [action](https://remix.run/docs/en/v1/hooks/use-action-data) and [loader](https://remix.run/docs/en/v1/hooks/use-loader-data)
 - Login example with [Remix-Auth](https://github.com/sergiodxa/remix-auth)
+- Form template and validation with [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form)
+- Global toast messages via [session flash](https://remix.run/docs/en/v1/utils/sessions#sessionflashkey-value)
+- Remix friendly form components, most of which do not require `useState`
 
 ## Deploy Your Own
 
