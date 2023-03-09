@@ -2,7 +2,7 @@ import type { LoaderArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { Alert } from '~/components/Alert';
-import Code from '~/components/Code';
+import { Code } from '~/components/Code';
 
 const pageTitle = 'Action boilerplate';
 export const meta: MetaFunction = () => {
@@ -35,7 +35,7 @@ export default function ActionBoilerplate() {
       <h2 className="mt-8 mb-2 text-lg font-semibold">
         Data loaded server side:
       </h2>
-      <Code content={JSON.stringify(data, null, 2)} isOpen />
+      <Code content={data} />
     </div>
   );
 }

@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* For active links provided by Remix NavLink */
+/*
+Remix specific styles
+*/
 .active {
   @apply font-bold text-gray-50;
 }
 
-/* For active links provided by Remix NavLink */
-.active {
-  @apply font-bold text-gray-50;
-}
-
+/*
+General content display
+*/
 .text-link {
   @apply text-blue-700 underline cursor-pointer;
 }
@@ -19,6 +19,9 @@
   @apply text-blue-900;
 }
 
+/*
+Form elements
+*/
 .form-label {
   @apply block mb-1 text-sm text-gray-700 cursor-pointer;
 }
