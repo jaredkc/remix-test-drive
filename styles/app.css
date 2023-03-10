@@ -2,16 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-Remix specific styles
-*/
-.active {
-  @apply font-bold;
-}
-
-/*
-General content display
-*/
+/**
+ * General content display
+ */
 .text-link {
   @apply text-blue-700 underline cursor-pointer;
 }
@@ -19,9 +12,9 @@ General content display
   @apply text-blue-900;
 }
 
-/*
-Form elements
-*/
+/**
+ * Form elements
+ */
 .form-label {
   @apply block mb-1 text-sm text-gray-700 cursor-pointer;
 }
@@ -45,7 +38,7 @@ Form elements
 }
 .form-label__action:hover,
 .form-label__action:focus {
-  color: var(--p-text-primary-hovered)
+  color: var(--p-text-primary-hovered);
 }
 
 .form-input[disabled] {
@@ -66,4 +59,115 @@ Form elements
 
 .form-help {
   @apply mt-1 text-xs text-gray-500;
+}
+
+/**
+ * App frame
+ * CSS breakpoint for mobile nav is 900px, if you change this
+ * you'll need to update the max-width media queries to be -1 (899px).
+ *
+ * I prefer traditional CSS over Tailwind for complex responsive
+ * layouts like the app frame. It's easier.
+ */
+.app-frame {
+  --header-height: 4rem;
+  --header-bg: #333;
+  --header-nav-spacing: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.app-frame__header,
+.app-frame__nav {
+  @apply bg-slate-900 text-slate-200;
+}
+
+.app-frame__header {
+  position: relative;
+}
+
+.app-frame__logo {
+  align-items: center;
+  display: flex;
+  height: var(--header-height);
+  padding: 0 var(--header-nav-spacing);
+  vertical-align: middle;
+}
+
+.app-frame__nav {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--header-nav-spacing) 0;
+}
+
+.app-frame__nav li {
+  margin: 1px 0;
+}
+
+.app-frame__nav a {
+  @apply block text-sm;
+  padding: 0.5rem var(--header-nav-spacing);
+}
+
+.app-frame__header a.active,
+.app-frame__header button:hover,
+.app-frame__header a:hover {
+  @apply bg-slate-800;
+}
+
+.app-frame__header a.active {
+  @apply font-bold;
+}
+
+.app-frame__content {
+  flex-grow: 1;
+  padding: 3rem var(--header-nav-spacing);
+}
+
+@media (max-width: 899px) {
+  .app-frame__header {
+    align-items: center;
+    display: flex;
+    height: var(--header-height);
+    justify-content: space-between;
+    min-height: 2rem;
+  }
+  .app-frame__nav {
+    height: calc(100vh - var(--header-height));
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translatex(-100%);
+    transition: transform 0.1s ease-out;
+  }
+  .app-frame__nav-btn {
+    @apply rounded;
+    padding: 0.5rem;
+    margin-right: var(--header-nav-spacing);
+  }
+  .app-frame--nav-open .app-frame__nav {
+    transform: translatex(0);
+    transition: transform 0.2s ease-in;
+  }
+}
+
+@media (min-width: 900px) {
+  .app-frame {
+    flex-direction: row;
+  }
+  .app-frame__header {
+    min-width: 16rem;
+  }
+  .app-frame__nav-btn {
+    display: none;
+  }
+  .app-frame__nav {
+    position: static;
+  }
+  .app-frame__content {
+    padding: 3rem 2rem;
+  }
 }

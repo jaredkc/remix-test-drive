@@ -1,36 +1,34 @@
-import { NavLink } from '@remix-run/react';
+import { NavLink, useLocation } from '@remix-run/react';
 import clsx from 'clsx';
 import type { HTMLAttributes } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function AppFrame({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
   let ToggleIcon = isOpen ? XIcon : MenuIcon;
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
-    <div className="lg:ml-72 xl:ml-80">
-      <header className="relative lg:fixed lg:inset-0 lg:z-10 lg:flex">
-        <div className="px-4 overflow-y-scroll border-b lg:w-72 border-zinc-200 lg:border-r lg:border-zinc-200 xl:w-80">
-          <div className="flex items-center h-12 gap-4">
-            <button onClick={() => setIsOpen(!isOpen)}>
-              <ToggleIcon className="w-3 stroke-zinc-900" />
-            </button>
-            <div>Remix Test Drive</div>
-          </div>
-          <AppNavigation
-            className={clsx(
-              isOpen
-                ? 'bg-white z-10 lg:my-6 lg:block'
-                : 'hidden lg:my-6 lg:block'
-            )}
-          />
+    <div className={clsx('app-frame', isOpen && 'app-frame--nav-open')}>
+      <header className="app-frame__header">
+        <div className="app-frame__logo">
+          <b className="font-bold">Remix Test Drive</b>
         </div>
+        <button
+          className="app-frame__nav-btn"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <ToggleIcon className="w-3" />
+        </button>
+        <AppNavigation className="app-frame__nav" />
       </header>
-      <div className="relative px-4 py-12 sm:px-6 lg:px-8 lg:z-20">
-        <main>
-          <article className="mx-auto prose">{children}</article>
-        </main>
-      </div>
+      <main className="app-frame__content">
+        <article className="mx-auto prose">{children}</article>
+      </main>
     </div>
   );
 }
@@ -40,6 +38,7 @@ function MenuIcon(props: HTMLAttributes<SVGElement>) {
     <svg
       viewBox="0 0 10 9"
       fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       aria-hidden="true"
       {...props}
@@ -54,6 +53,7 @@ function XIcon(props: HTMLAttributes<SVGElement>) {
     <svg
       viewBox="0 0 10 9"
       fill="none"
+      stroke="currentColor"
       strokeLinecap="round"
       aria-hidden="true"
       {...props}
@@ -78,12 +78,7 @@ export function AppNavigation(props: HTMLAttributes<HTMLElement>) {
       <ul>
         {navigation.map((item, index) => (
           <li key={index}>
-            <NavLink
-              to={item.to}
-              className="block my-3 text-sm transition text-zinc-600 hover:text-zinc-900 "
-            >
-              {item.title}
-            </NavLink>
+            <NavLink to={item.to}>{item.title}</NavLink>
           </li>
         ))}
       </ul>

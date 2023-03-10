@@ -9,6 +9,8 @@ Remix examples provided:
 - Form template and validation with [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form)
 - Global toast messages via [session flash](https://remix.run/docs/en/v1/utils/sessions#sessionflashkey-value)
 - Remix friendly form components, most of which do not require `useState`
+- AppFrame component
+  - Simple responsive layout, active navigation link, close mobile menu after navigation.
 
 ## Deploy Your Own
 
