@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 type Props = {
   title: string;
   children?: React.ReactNode;
@@ -5,12 +7,31 @@ type Props = {
 };
 
 export const Alert = ({ title, children, type }: Props) => {
-  const color = type === 'success' ? 'green' : 'red';
+  const isError = type === 'error' ? true : false;
   return (
-    <div className={`p-4 mb-6 rounded-md bg-${color}-50`}>
-      <h3 className={`text-sm font-medium text-${color}-800`}>{title}</h3>
+    <div
+      className={clsx(
+        'p-4 mb-6 rounded-md',
+        isError ? 'bg-red-50' : 'bg-green-50'
+      )}
+    >
+      <h2
+        className={clsx(
+          'm-0 text-sm font-medium',
+          isError ? 'text-red-800' : 'text-green-800'
+        )}
+      >
+        {title}
+      </h2>
       {children && (
-        <div className={`mt-2 text-xs text-${color}-700`}>{children}</div>
+        <div
+          className={clsx(
+            'mt-2 text-xs',
+            isError ? 'text-red-700' : 'text-green-700'
+          )}
+        >
+          {children}
+        </div>
       )}
     </div>
   );
