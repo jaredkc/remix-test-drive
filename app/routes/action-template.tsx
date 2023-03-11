@@ -20,6 +20,9 @@ export const action = async ({ request }: ActionArgs) => {
   // Or like this...
   // const name = formData.get('name');
 
+  // TODO: remove this, it's just to show the loading state
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   // Check required fields
   if (!name) return json({ message: 'Missing required fields' });
 
@@ -43,7 +46,7 @@ export default function ActionTemplate() {
       {data ? <Alert title={data.message} type="success" /> : null}
 
       <Form method="post" className="flex flex-col gap-4">
-        <FormInput label="Full name" name="name" defaultValue="Bob" required />
+        <FormInput label="What is your name?" name="name" required />
         <FormCheckbox label="Thrown an error?" name="error" value="yes" />
         <FormSubmit label="Submit" />
       </Form>
