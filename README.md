@@ -1,17 +1,27 @@
 # Remix Test Drive
 
-As I continue to dive in and learn [Remix](https://remix.run/docs), I'll be adding more examples here. These examples are intended to be quick cut-and-paste starter resources when working with Remix.
+A handle full of [Remix](https://remix.run/docs) resources and examples for cut-and-paste reference.
 
-Examples included so far:
+## Build with
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Remix-Auth](https://github.com/sergiodxa/remix-auth)
+- [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form)
+
+## Examples provided
 
 - [Action](https://remix.run/docs/en/v1/hooks/use-action-data) template with [ErrorBoundary](https://remix.run/docs/en/1.14.1/route/error-boundary).
-- [Loader] template fetching data server side.
-- Login example with [Remix-Auth](https://github.com/sergiodxa/remix-auth).
-- Form template and validation with [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form).
+- [Loader](https://remix.run/docs/en/main/route/loader) template fetching data server side.
+- Session example with [Remix-Auth](https://github.com/sergiodxa/remix-auth).
+  - Login template and protected route with `isAuthenticated`.
+- Remix [Form](https://remix.run/docs/en/main/components/form) examples
+  - Remix-friendly form components, most of which do not require `useState`.
+- [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form) example.
+  - Includes validated form components and validation with Zod.
 - Global toast messages via [session flash](https://remix.run/docs/en/v1/utils/sessions#sessionflashkey-value).
-- Remix friendly form components, most of which do not require `useState`.
 - Example API routes returning JSON.
-- AppFrame component
+- AppFrame component using:
   - Active navigation link with [NavLink](https://remix.run/docs/en/1.14.1/components/nav-link)
   - Loading indicator when navigating with [useTransition](https://remix.run/docs/en/1.14.1/hooks/use-transition)
   - Close the mobile menu after navigation with [useLocation](https://remix.run/docs/en/1.14.1/other-api/react-router).
