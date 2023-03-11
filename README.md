@@ -12,7 +12,10 @@ Examples included so far:
 - Remix friendly form components, most of which do not require `useState`.
 - Example API routes returning JSON.
 - AppFrame component
-  - Simple responsive layout, active navigation link, close mobile menu after navigation.
+  - Active navigation link with [NavLink](https://remix.run/docs/en/1.14.1/components/nav-link)
+  - Loading indicator when navigating with [useTransition](https://remix.run/docs/en/1.14.1/hooks/use-transition)
+  - Close the mobile menu after navigation with [useLocation](https://remix.run/docs/en/1.14.1/other-api/react-router).
+  - Simple responsive layout
 
 ## Deploy Your Own
 

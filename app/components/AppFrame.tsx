@@ -1,11 +1,12 @@
-import { NavLink, useLocation } from '@remix-run/react';
+import { NavLink, useLocation, useTransition } from '@remix-run/react';
 import clsx from 'clsx';
 import type { HTMLAttributes } from 'react';
 import { useEffect, useState } from 'react';
 
 export function AppFrame({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const transition = useTransition();
   const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   let ToggleIcon = isOpen ? XIcon : MenuIcon;
 
   useEffect(() => {
@@ -29,6 +30,11 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
       <main className="app-frame__content">
         <article className="mx-auto prose">{children}</article>
       </main>
+      {transition.state !== 'idle' && (
+        <div className="absolute top-0 px-6 py-2 text-sm -translate-x-1/2 rounded-b bg-slate-800 text-slate-200 left-1/2">
+          Loading...
+        </div>
+      )}
     </div>
   );
 }
