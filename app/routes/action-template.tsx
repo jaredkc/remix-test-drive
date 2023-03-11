@@ -3,10 +3,10 @@ import { json } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 import { FormCheckbox, FormInput, FormSubmit } from '~/components/forms';
 import { Alert } from '~/components/Alert';
+import { ErrorBanner } from '~/components/ErrorBanner';
 
-const pageTitle = 'Action boilerplate';
 export const meta: MetaFunction = () => {
-  return { title: pageTitle };
+  return { title: "Action template" };
 };
 
 //
@@ -31,7 +31,7 @@ export const action = async ({ request }: ActionArgs) => {
 //
 // client-side
 //
-export default function ActionBoilerplate() {
+export default function ActionTemplate() {
   const data = useActionData();
 
   return (
@@ -52,11 +52,5 @@ export default function ActionBoilerplate() {
 }
 
 export function ErrorBoundary({ error }: { error: Error }) {
-  return (
-    <Alert title="Whoops!" type="error">
-      <h2 className="mt-4 font-bold text-md">{error.message}</h2>
-      <p>The stack trace is:</p>
-      <pre>{error.stack}</pre>
-    </Alert>
-  );
+  return <ErrorBanner error={error} />;
 }
