@@ -11,7 +11,9 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import { Analytics } from '@vercel/analytics/react';
+import { useEffect, useState } from 'react';
 import { AppFrame } from './components/AppFrame';
+import { CloseIcon } from './components/icons/CloseIcon';
 import { commitSession, getSession } from './session.server';
 import styles from './styles/app.css';
 
@@ -37,6 +39,26 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function App() {
   const { message } = useLoaderData<typeof loader>();
+  const [messageActive, setMessageActive] = useState(false);
+
+  useEffect(() => {
+    setMessageActive(message ? true : false);
+  }, [message]);
+
+  const messageMarkup =
+    message && messageActive ? (
+      <div className="fixed bottom-0 z-50 max-w-md p-4 -translate-x-1/2 left-1/2">
+        <div className="flex items-center gap-4 px-4 py-3 rounded text-slate-100 bg-slate-700">
+          {message}
+          <button
+            onClick={() => setMessageActive(false)}
+            className="p-1 rounded-full hover:bg-slate-500"
+          >
+            <CloseIcon className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    ) : null;
 
   return (
     <html lang="en">
@@ -48,13 +70,7 @@ export default function App() {
         <AppFrame>
           <Outlet />
         </AppFrame>
-        {message && (
-          <div className="fixed bottom-0 max-w-md p-4 -translate-x-1/2 left-1/2 z-50">
-            <div className="px-4 py-2 rounded text-slate-100 bg-slate-700">
-              {message}
-            </div>
-          </div>
-        )}
+        {messageMarkup}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

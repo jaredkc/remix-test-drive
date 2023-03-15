@@ -12,7 +12,14 @@ export const meta: MetaFunction = () => {
 
 export const action = async ({ request }: DataFunctionArgs) => {
   const session = await getSession(request.headers.get('Cookie'));
-  session.flash('globalMessage', `👋 Hello!`);
+  const date = new Date();
+  const time = date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  });
+
+  session.flash('globalMessage', `👋 Saying hello at ${time}`);
 
   return new Response(null, {
     status: 200,
