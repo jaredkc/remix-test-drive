@@ -12,6 +12,13 @@
   @apply text-blue-900;
 }
 
+.btn {
+ @apply px-8 py-2 mt-4 text-sm font-medium text-white bg-sky-600 border border-transparent rounded-md shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2;
+}
+.btn--sm {
+  @apply px-4 py-1 text-xs;
+}
+
 /**
  * Form elements
  */

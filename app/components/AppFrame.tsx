@@ -76,6 +76,7 @@ export const navigation = [
   { title: 'Validated Form', to: '/validated-form' },
   { title: 'Private', to: '/private' },
   { title: 'Login', to: '/login' },
+  { title: 'Components', to: '/components' },
 ];
 
 export function AppNavigation(props: HTMLAttributes<HTMLElement>) {
