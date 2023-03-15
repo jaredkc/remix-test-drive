@@ -8,10 +8,7 @@ export const FormSubmit = ({ label }: Props) => {
   const transition = useTransition();
 
   return (
-    <button
-      type="submit"
-      className="btn"
-    >
+    <button type="submit" className="btn">
       {transition.state === 'submitting' ? 'Submitting...' : label}
     </button>
   );
