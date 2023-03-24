@@ -30,11 +30,8 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
       <main className="app-frame__content">
         <article className="mx-auto prose">{children}</article>
       </main>
-      {transition.state !== 'idle' && (
-        <div className="absolute top-0 px-6 py-2 text-sm -translate-x-1/2 rounded-b bg-slate-800 text-slate-200 left-1/2">
-          Loading...
-        </div>
-      )}
+
+      {transition.state !== 'idle' && <Loading />}
     </div>
   );
 }
@@ -69,7 +66,7 @@ function XIcon(props: HTMLAttributes<SVGElement>) {
   );
 }
 
-export const navigation = [
+const navigation = [
   { title: 'Introduction', to: '/' },
   { title: 'Loader', to: '/loader-template' },
   { title: 'Action', to: '/action-template' },
@@ -79,7 +76,7 @@ export const navigation = [
   { title: 'Components', to: '/components' },
 ];
 
-export function AppNavigation(props: HTMLAttributes<HTMLElement>) {
+function AppNavigation(props: HTMLAttributes<HTMLElement>) {
   return (
     <nav {...props}>
       <ul>
@@ -90,5 +87,42 @@ export function AppNavigation(props: HTMLAttributes<HTMLElement>) {
         ))}
       </ul>
     </nav>
+  );
+}
+
+function Loading() {
+  const [width, setWidth] = useState(0);
+  const [duration, setDuration] = useState('3000ms');
+
+  useEffect(() => {
+    setWidth(0.5);
+    const timer1 = setTimeout(() => {
+      setWidth(0.6);
+      setDuration('1000ms');
+    }, 3000);
+    const timer2 = setTimeout(() => {
+      setWidth(0.7);
+      setDuration('2000ms');
+    }, 4000);
+    const timer3 = setTimeout(() => setWidth(0.8), 6000);
+    const timer4 = setTimeout(() => setWidth(0.9), 8000);
+    const timer5 = setTimeout(() => setWidth(0.99), 10000);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+    };
+  }, []);
+
+  return (
+    <div
+      className="fixed top-0 left-0 w-full h-0.5 origin-left linear bg-gradient-to-r from-cyan-500 to-blue-500"
+      style={{ transform: `scaleX(${width})`, transitionDuration: duration }}
+    >
+      <span className="sr-only">Loading...</span>
+    </div>
   );
 }
