@@ -68,8 +68,8 @@ function XIcon(props: HTMLAttributes<SVGElement>) {
 
 const navigation = [
   { title: 'Introduction', to: '/' },
-  { title: 'Loader', to: '/loader-template' },
-  { title: 'Action', to: '/action-template' },
+  { title: 'Loader', to: '/template/loader' },
+  { title: 'Action', to: '/template/action' },
   { title: 'Validated Form', to: '/validated-form' },
   { title: 'Private', to: '/private' },
   { title: 'Login', to: '/login' },
