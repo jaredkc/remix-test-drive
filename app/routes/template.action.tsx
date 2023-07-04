@@ -1,13 +1,11 @@
-import type { ActionArgs, MetaFunction } from '@remix-run/node';
+import type { ActionArgs, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 import { FormCheckbox, FormInput, FormSubmit } from '~/components/forms';
 import { Alert } from '~/components/Alert';
 import { ErrorBanner } from '~/components/ErrorBanner';
 
-export const meta: MetaFunction = () => {
-  return { title: "Action template" };
-};
+export const meta: V2_MetaFunction = () => [{ title: 'Action template' }];
 
 //
 // server-side
@@ -54,6 +52,6 @@ export default function ActionTemplate() {
   );
 }
 
-export function ErrorBoundary({ error }: { error: Error }) {
-  return <ErrorBanner error={error} />;
+export function ErrorBoundary() {
+  return <ErrorBanner />;
 }

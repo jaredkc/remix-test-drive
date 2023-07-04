@@ -1,11 +1,9 @@
-import type { LoaderArgs, MetaFunction } from '@remix-run/node';
+import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { Code } from '~/components/Code';
 
-export const meta: MetaFunction = () => {
-  return { title: 'Loader template' };
-};
+export const meta: V2_MetaFunction = () => [{ title: 'Loader template' }];
 
 //
 // server-side

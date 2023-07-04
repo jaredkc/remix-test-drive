@@ -1,4 +1,4 @@
-import type { DataFunctionArgs, MetaFunction } from '@remix-run/node';
+import type { DataFunctionArgs, V2_MetaFunction } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
@@ -6,9 +6,7 @@ import { FormSubmit } from '~/components/forms';
 import { Modal } from '~/components/Modal';
 import { commitSession, getSession } from '~/session.server';
 
-export const meta: MetaFunction = () => {
-  return { title: 'Loader template' };
-};
+export const meta: V2_MetaFunction = () => [{ title: 'Loader template' }];
 
 export const action = async ({ request }: DataFunctionArgs) => {
   const session = await getSession(request.headers.get('Cookie'));

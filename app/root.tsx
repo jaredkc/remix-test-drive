@@ -1,10 +1,9 @@
-import type { LoaderArgs, MetaFunction } from '@remix-run/node';
+import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
   Links,
   LiveReload,
   Meta,
-  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
@@ -17,11 +16,11 @@ import { CloseIcon } from './components/icons/CloseIcon';
 import { commitSession, getSession } from './session.server';
 import styles from './styles/app.css';
 
-export const meta: MetaFunction = () => ({
+export const meta: V2_MetaFunction = () => [{
   charset: 'utf-8',
   title: 'New Remix App',
   viewport: 'width=device-width,initial-scale=1',
-});
+}];
 
 export function links() {
   return [{ rel: 'stylesheet', href: styles }];
