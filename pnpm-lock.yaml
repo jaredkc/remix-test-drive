@@ -19,7 +19,7 @@ dependencies:
     version: 1.19.3(@vercel/node@2.15.10)
   '@remix-validated-form/with-zod':
     specifier: ^2.0.6
-    version: 2.0.6(remix-validated-form@5.1.0)(zod@3.22.1)
+    version: 2.0.6(remix-validated-form@5.1.0)(zod@3.22.3)
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
@@ -51,8 +51,8 @@ dependencies:
     specifier: ^5.1.0
     version: 5.1.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)
   zod:
-    specifier: ^3.22.1
-    version: 3.22.1
+    specifier: ^3.22.3
+    version: 3.22.3
 
 devDependencies:
   '@remix-run/dev':
@@ -2092,14 +2092,14 @@ packages:
     dependencies:
       web-streams-polyfill: 3.2.1
 
-  /@remix-validated-form/with-zod@2.0.6(remix-validated-form@5.1.0)(zod@3.22.1):
+  /@remix-validated-form/with-zod@2.0.6(remix-validated-form@5.1.0)(zod@3.22.3):
     resolution: {integrity: sha512-i8H0PPFSSKIMGPVO/8cUMO1QoGa2bBQZb6RH3DoXGVE1heu52d1vwrFVsYYQB8Vc8lp5BGQk1kbxZuN9RzH1OA==}
     peerDependencies:
       remix-validated-form: ^4.x || ^5.x
       zod: ^3.11.x
     dependencies:
       remix-validated-form: 5.1.0(@remix-run/react@1.19.3)(@remix-run/server-runtime@1.19.3)(react@18.2.0)
-      zod: 3.22.1
+      zod: 3.22.3
     dev: false
 
   /@rollup/pluginutils@4.2.1:
@@ -8164,8 +8164,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod@3.22.1:
-    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
+  /zod@3.22.3:
+    resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
     dev: false
 
   /zustand@4.3.2(immer@9.0.18)(react@18.2.0):
