@@ -19,7 +19,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 //
 // client-side
 //
-export default function ActionTemplate() {
+export default function LoaderTemplate() {
   const loaderData = useLoaderData<typeof loader>();
 
   return (
