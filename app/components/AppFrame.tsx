@@ -1,10 +1,10 @@
-import { NavLink, useLocation, useTransition } from '@remix-run/react';
+import { NavLink, useLocation, useNavigation } from '@remix-run/react';
 import clsx from 'clsx';
 import type { HTMLAttributes } from 'react';
 import { useEffect, useState } from 'react';
 
 export function AppFrame({ children }: { children: React.ReactNode }) {
-  const transition = useTransition();
+  const navigation = useNavigation();
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   let ToggleIcon = isOpen ? XIcon : MenuIcon;
@@ -31,7 +31,7 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
         <article className="mx-auto prose">{children}</article>
       </main>
 
-      {transition.state !== 'idle' && <Loading />}
+      {navigation.state !== 'idle' && <Loading />}
     </div>
   );
 }
@@ -120,7 +120,7 @@ function Loading() {
   return (
     <div
       className="fixed top-0 left-0 w-full h-0.5 origin-left linear bg-gradient-to-r from-cyan-500 to-blue-500"
-      style={{ transform: `scaleX(${width})`, transitionDuration: duration }}
+      style={{ transform: `scaleX(${width})`, navigationDuration: duration }}
     >
       <span className="sr-only">Loading...</span>
     </div>
