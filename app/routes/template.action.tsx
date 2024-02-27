@@ -1,16 +1,16 @@
-import type { ActionArgs, V2_MetaFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 import { FormCheckbox, FormInput, FormSubmit } from '~/components/forms';
 import { Alert } from '~/components/Alert';
 import { ErrorBanner } from '~/components/ErrorBanner';
 
-export const meta: V2_MetaFunction = () => [{ title: 'Action template' }];
+export const meta: MetaFunction = () => [{ title: 'Action template' }];
 
 //
 // server-side
 //
-export const action = async ({ request }: ActionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   // Get form values like this...
   const data = Object.fromEntries(formData);

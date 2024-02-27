@@ -1,6 +1,6 @@
-import type { LoaderArgs } from '@remix-run/node';
+import type { LoaderFunctionArgs } from '@remix-run/node';
 
-export const loader = async ({ params }: LoaderArgs) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   if (params.id && parseInt(params.id) > 10) {
     return new Response('User ID must be between 1 and 10', { status: 404 });
   }

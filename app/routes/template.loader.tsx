@@ -1,14 +1,14 @@
-import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
+import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { Code } from '~/components/Code';
 
-export const meta: V2_MetaFunction = () => [{ title: 'Loader template' }];
+export const meta: MetaFunction = () => [{ title: 'Loader template' }];
 
 //
 // server-side
 //
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   return json({
     message: 'Users data provided by jsonplaceholder.typicode.com',

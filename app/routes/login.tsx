@@ -1,4 +1,4 @@
-import type { ActionArgs, LoaderArgs } from '@remix-run/node';
+import type { ActionFunctionArgs, LoaderFunctionArgs } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { Alert } from '~/components/Alert';
@@ -7,14 +7,14 @@ import { auth, getSession } from '~/session.server';
 
 type LoaderError = { message: string } | null;
 
-export const loader = async ({ request }: LoaderArgs) => {
+export const loader = async ({ request }: LoaderFunctionArgs) => {
   await auth.isAuthenticated(request, { successRedirect: '/private' });
   const session = await getSession(request.headers.get('Cookie'));
   const error = session.get(auth.sessionErrorKey) as LoaderError;
   return json({ error });
 };
 
-export const action = async ({ request }: ActionArgs) => {
+export const action = async ({ request }: ActionFunctionArgs) => {
   await auth.authenticate('form', request, {
     successRedirect: '/private',
     failureRedirect: '/login',
