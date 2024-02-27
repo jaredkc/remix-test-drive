@@ -47,7 +47,7 @@ export default function ConformTemplate() {
     },
 
     // Validate the form on blur event triggered
-    // shouldValidate: 'onBlur',
+    shouldValidate: 'onBlur',
   });
 
   return (
