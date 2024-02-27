@@ -70,6 +70,7 @@ const navigation = [
   { title: 'Introduction', to: '/' },
   { title: 'Loader', to: '/template/loader' },
   { title: 'Action', to: '/template/action' },
+  { title: 'Conform', to: '/template/conform' },
   { title: 'Private', to: '/private' },
   { title: 'Login', to: '/login' },
   { title: 'Components', to: '/components' },

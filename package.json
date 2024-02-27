@@ -8,6 +8,8 @@
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css"
   },
   "dependencies": {
+    "@conform-to/react": "^1.0.2",
+    "@conform-to/zod": "^1.0.2",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
     "@remix-run/server-runtime": "^2.7.2",

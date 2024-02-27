@@ -33,7 +33,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 // client-side
 //
 export default function ActionTemplate() {
-  const data = useActionData();
+  const data = useActionData<typeof action>();
 
   return (
     <div>
