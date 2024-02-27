@@ -1,4 +1,4 @@
-import type { LoaderArgs, V2_MetaFunction } from '@remix-run/node';
+import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import {
   Links,
@@ -9,14 +9,13 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react';
-import { Analytics } from '@vercel/analytics/react';
 import { useEffect, useState } from 'react';
 import { AppFrame } from './components/AppFrame';
 import { CloseIcon } from './components/icons/CloseIcon';
 import { commitSession, getSession } from './session.server';
 import styles from './styles/app.css';
 
-export const meta: V2_MetaFunction = () => [{
+export const meta: MetaFunction = () => [{
   charset: 'utf-8',
   title: 'New Remix App',
   viewport: 'width=device-width,initial-scale=1',
@@ -26,7 +25,7 @@ export function links() {
   return [{ rel: 'stylesheet', href: styles }];
 }
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   const session = await getSession(request.headers.get('Cookie'));
   const message = session.get('globalMessage') || null;
 
@@ -73,7 +72,6 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
-        <Analytics />
       </body>
     </html>
   );
