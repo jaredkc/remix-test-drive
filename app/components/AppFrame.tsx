@@ -70,7 +70,6 @@ const navigation = [
   { title: 'Introduction', to: '/' },
   { title: 'Loader', to: '/template/loader' },
   { title: 'Action', to: '/template/action' },
-  { title: 'Validated Form', to: '/validated-form' },
   { title: 'Private', to: '/private' },
   { title: 'Login', to: '/login' },
   { title: 'Components', to: '/components' },
@@ -120,7 +119,7 @@ function Loading() {
   return (
     <div
       className="fixed top-0 left-0 w-full h-0.5 origin-left linear bg-gradient-to-r from-cyan-500 to-blue-500"
-      style={{ transform: `scaleX(${width})`, navigationDuration: duration }}
+      style={{ transform: `scaleX(${width})`, animationDuration: duration }}
     >
       <span className="sr-only">Loading...</span>
     </div>

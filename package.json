@@ -11,7 +11,6 @@
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
     "@remix-run/server-runtime": "^2.7.2",
-    "@remix-validated-form/with-zod": "^2.0.7",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.6",
     "jwt-decode": "^4.0.0",

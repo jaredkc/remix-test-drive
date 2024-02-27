@@ -7,7 +7,6 @@ A handle full of [Remix](https://remix.run/docs) resources and examples for cut-
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Remix-Auth](https://github.com/sergiodxa/remix-auth)
-- [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form)
 
 ## Examples provided
 
@@ -17,8 +16,6 @@ A handle full of [Remix](https://remix.run/docs) resources and examples for cut-
   - Login template and protected route with `isAuthenticated`.
 - Remix [Form](https://remix.run/docs/en/main/components/form) examples
   - Remix-friendly form components, most of which do not require `useState`.
-- [Remix Validated Form](https://github.com/sergiodxa/remix-auth-form) example.
-  - Includes validated form components and validation with Zod.
 - Global toast messages via [session flash](https://remix.run/docs/en/v1/utils/sessions#sessionflashkey-value).
 - Example API routes returning JSON.
 - AppFrame component using:
