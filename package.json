@@ -10,9 +10,9 @@
   "dependencies": {
     "@conform-to/react": "^1.0.2",
     "@conform-to/zod": "^1.0.2",
-    "@remix-run/node": "^2.7.2",
-    "@remix-run/react": "^2.7.2",
-    "@remix-run/server-runtime": "^2.7.2",
+    "@remix-run/node": "2.8.1",
+    "@remix-run/react": "2.8.1",
+    "@remix-run/server-runtime": "2.8.1",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.6",
     "jwt-decode": "^4.0.0",
@@ -24,9 +24,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.7.2",
-    "@remix-run/eslint-config": "^2.7.2",
-    "@remix-run/serve": "^2.7.2",
+    "@remix-run/dev": "2.8.1",
+    "@remix-run/eslint-config": "2.8.1",
+    "@remix-run/serve": "2.8.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
@@ -36,6 +36,6 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18.0.0"
   }
 }
