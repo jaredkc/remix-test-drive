@@ -27,7 +27,7 @@
   "devDependencies": {
     "@remix-run/dev": "2.12.1",
     "@remix-run/eslint-config": "^2.12.1",
-    "@remix-run/serve": "2.12.1",
+    "@remix-run/serve": "2.16.7",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
